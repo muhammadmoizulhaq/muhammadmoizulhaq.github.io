@@ -1,0 +1,7 @@
+*{
+    scroll-behavior: smooth;
+}
+
+.text-muted a{
+	text-decoration: none;
+}
