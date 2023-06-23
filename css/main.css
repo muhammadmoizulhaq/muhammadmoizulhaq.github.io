@@ -5,3 +5,15 @@
 .text-muted a{
 	text-decoration: none;
 }
+
+.Card-img{
+    height: 200px;
+}
+
+.my-card-text{
+    height: 100px;
+}
+
+.bg-card{
+    background-color: transparent;
+}
