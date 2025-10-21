@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: 
-Sitemap: https://muhammadmoizulhaq.github.io/sitemap.xml
