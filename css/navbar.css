@@ -196,32 +196,36 @@
   }
 
   .portfolio-navbar .navbar-menu {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 100%;
     left: 0;
-    width: 100%;
-    height: 100vh;
+    right: 0;
     background: #000000;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
     z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .portfolio-navbar .navbar-menu.open {
-    transform: translateX(0);
+    max-height: 500px;
+    padding: 20px 0;
   }
 
   .portfolio-navbar .navbar-menu .nav-item {
+    width: 100%;
     text-align: center;
   }
 
   .portfolio-navbar .navbar-menu .nav-item .nav-link {
-    font-size: 24px;
-    padding: 15px 30px;
+    font-size: 18px;
+    padding: 15px 20px;
+    display: block;
+    border-radius: 0;
   }
 
   .portfolio-navbar .navbar-menu .nav-item .nav-link::after {
@@ -233,6 +237,5 @@
   .portfolio-navbar .navbar-menu .nav-item .nav-link.active {
     color: #ffbd39;
     background: rgba(255, 189, 57, 0.1);
-    border-radius: 5px;
   }
 }

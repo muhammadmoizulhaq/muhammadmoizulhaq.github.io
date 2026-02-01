@@ -67,19 +67,14 @@
 	var portfolioNavbarToggle = function() {
 		$('body').on('click', '.navbar-toggle', function(event) {
 			event.preventDefault();
+			event.stopPropagation();
+			
 			var $this = $(this);
 			var $menu = $('#navbar-menu');
 			var isExpanded = $this.attr('aria-expanded') === 'true';
 
 			$this.attr('aria-expanded', !isExpanded);
 			$menu.toggleClass('open');
-
-			// Prevent body scroll when menu is open
-			if (!isExpanded) {
-				$('body').addClass('menu-show');
-			} else {
-				$('body').removeClass('menu-show');
-			}
 		});
 
 		// Close menu when clicking on a link
@@ -90,7 +85,20 @@
 			if ($menu.hasClass('open')) {
 				$menu.removeClass('open');
 				$toggle.attr('aria-expanded', 'false');
-				$('body').removeClass('menu-show');
+			}
+		});
+
+		// Close menu when clicking outside
+		$(document).on('click', function(event) {
+			var $menu = $('#navbar-menu');
+			var $toggle = $('.navbar-toggle');
+			
+			if (!$menu.is(event.target) && !$menu.has(event.target).length && 
+				!$toggle.is(event.target) && !$toggle.has(event.target).length) {
+				if ($menu.hasClass('open')) {
+					$menu.removeClass('open');
+					$toggle.attr('aria-expanded', 'false');
+				}
 			}
 		});
 
@@ -103,8 +111,15 @@
 				if ($menu.hasClass('open')) {
 					$menu.removeClass('open');
 					$toggle.attr('aria-expanded', 'false');
-					$('body').removeClass('menu-show');
 				}
+			}
+		});
+
+		// Handle focus management for accessibility
+		$('.navbar-toggle').on('keydown', function(event) {
+			if (event.keyCode === 13 || event.keyCode === 32) { // Enter or Space
+				event.preventDefault();
+				$(this).trigger('click');
 			}
 		});
 	};
