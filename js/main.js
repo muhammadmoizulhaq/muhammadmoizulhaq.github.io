@@ -63,23 +63,69 @@
 	burgerMenu();
 
 
-	var onePageClick = function() {
+	// Portfolio Navbar Toggle
+	var portfolioNavbarToggle = function() {
+		$('body').on('click', '.navbar-toggle', function(event) {
+			event.preventDefault();
+			var $this = $(this);
+			var $menu = $('#navbar-menu');
+			var isExpanded = $this.attr('aria-expanded') === 'true';
 
+			$this.attr('aria-expanded', !isExpanded);
+			$menu.toggleClass('open');
 
-		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
-	    event.preventDefault();
-
-	    var href = $.attr(this, 'href');
-
-	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top - 70
-	    }, 500, function() {
-	    	// window.location.hash = href;
-	    });
+			// Prevent body scroll when menu is open
+			if (!isExpanded) {
+				$('body').addClass('menu-show');
+			} else {
+				$('body').removeClass('menu-show');
+			}
 		});
 
-	};
+		// Close menu when clicking on a link
+		$('body').on('click', '.navbar-menu .nav-link', function() {
+			var $menu = $('#navbar-menu');
+			var $toggle = $('.navbar-toggle');
 
+			if ($menu.hasClass('open')) {
+				$menu.removeClass('open');
+				$toggle.attr('aria-expanded', 'false');
+				$('body').removeClass('menu-show');
+			}
+		});
+
+		// Close menu on escape key
+		$(document).on('keydown', function(event) {
+			if (event.keyCode === 27) { // Escape key
+				var $menu = $('#navbar-menu');
+				var $toggle = $('.navbar-toggle');
+
+				if ($menu.hasClass('open')) {
+					$menu.removeClass('open');
+					$toggle.attr('aria-expanded', 'false');
+					$('body').removeClass('menu-show');
+				}
+			}
+		});
+	};
+	portfolioNavbarToggle();
+
+
+	var onePageClick = function() {
+		$(document).on('click', '.navbar-menu a[href^="#"]', function (event) {
+			event.preventDefault();
+
+			var href = $.attr(this, 'href');
+
+			$('html, body').animate({
+				scrollTop: $($.attr(this, 'href')).offset().top - 70
+			}, 500, function() {
+				// Update active state
+				$('.navbar-menu .nav-link').removeClass('active');
+				$('.navbar-menu a[href="' + href + '"]').addClass('active');
+			});
+		});
+	};
 	onePageClick();
 	
 
@@ -138,42 +184,51 @@
 		$(window).scroll(function(){
 			var $w = $(this),
 					st = $w.scrollTop(),
-					navbar = $('.ftco_navbar'),
+					navbar = $('.portfolio-navbar'),
 					sd = $('.js-scroll-wrap');
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
-					navbar.removeClass('scrolled sleep');
-				}
-			} 
-			if ( st > 350 ) {
-				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
-				}
-				
-				if(sd.length > 0) {
-					sd.addClass('sleep');
+					navbar.removeClass('scrolled');
 				}
 			}
-			if ( st < 350 ) {
-				if ( navbar.hasClass('awake') ) {
-					navbar.removeClass('awake');
-					navbar.addClass('sleep');
+
+			// Update active nav link based on scroll position
+			var scrollPos = $(document).scrollTop() + 100;
+
+			$('.navbar-menu a[href^="#"]').each(function () {
+				var currLink = $(this);
+				var refElement = $(currLink.attr("href"));
+
+				if (refElement.length && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+					$('.navbar-menu .nav-link').removeClass("active");
+					currLink.addClass("active");
 				}
-				if(sd.length > 0) {
-					sd.removeClass('sleep');
-				}
-			}
+			});
 		});
 	};
 	scrollWindow();
 
-	
+	// Set initial active nav link
+	var setInitialActive = function() {
+		var scrollPos = $(document).scrollTop() + 100;
+
+		$('.navbar-menu a[href^="#"]').each(function () {
+			var currLink = $(this);
+			var refElement = $(currLink.attr("href"));
+
+			if (refElement.length && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+				$('.navbar-menu .nav-link').removeClass("active");
+				currLink.addClass("active");
+			}
+		});
+	};
+	setInitialActive();
 
 	var counter = function() {
 		

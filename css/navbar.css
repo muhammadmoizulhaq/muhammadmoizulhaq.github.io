@@ -1,0 +1,238 @@
+.portfolio-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.portfolio-navbar .navbar-container {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+.portfolio-navbar .navbar-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.portfolio-navbar .navbar-logo img {
+  height: 60px;
+  width: 60px;
+  margin-right: 8px;
+}
+
+.portfolio-navbar .navbar-logo:hover,
+.portfolio-navbar .navbar-logo:focus {
+  color: #ffbd39;
+}
+
+.portfolio-navbar .navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.portfolio-navbar .navbar-toggle:hover,
+.portfolio-navbar .navbar-toggle:focus {
+  color: #ffbd39;
+  outline: none;
+}
+
+.portfolio-navbar .navbar-toggle .hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.portfolio-navbar .navbar-toggle .hamburger::before,
+.portfolio-navbar .navbar-toggle .hamburger::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.portfolio-navbar .navbar-toggle .hamburger::before {
+  top: -8px;
+}
+
+.portfolio-navbar .navbar-toggle .hamburger::after {
+  top: 8px;
+}
+
+.portfolio-navbar .navbar-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+
+.portfolio-navbar .navbar-toggle[aria-expanded="true"] .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.portfolio-navbar .navbar-toggle[aria-expanded="true"] .hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.portfolio-navbar .navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.portfolio-navbar .navbar-menu .nav-item {
+  position: relative;
+}
+
+.portfolio-navbar .navbar-menu .nav-item .nav-link {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.portfolio-navbar .navbar-menu .nav-item .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ffbd39;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.portfolio-navbar .navbar-menu .nav-item .nav-link:hover,
+.portfolio-navbar .navbar-menu .nav-item .nav-link:focus,
+.portfolio-navbar .navbar-menu .nav-item .nav-link.active {
+  color: #ffbd39;
+}
+
+.portfolio-navbar .navbar-menu .nav-item .nav-link:hover::after,
+.portfolio-navbar .navbar-menu .nav-item .nav-link:focus::after,
+.portfolio-navbar .navbar-menu .nav-item .nav-link.active::after {
+  width: 100%;
+}
+
+.portfolio-navbar.scrolled {
+  position: fixed;
+  background: #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
+}
+
+.portfolio-navbar.scrolled .navbar-container {
+  min-height: 70px;
+}
+
+.portfolio-navbar.scrolled .navbar-logo img {
+  height: 50px;
+  width: 50px;
+}
+
+.portfolio-navbar.scrolled .navbar-menu .nav-link {
+  color: #fff;
+}
+
+.portfolio-navbar.scrolled .navbar-menu .nav-link:hover,
+.portfolio-navbar.scrolled .navbar-menu .nav-link:focus,
+.portfolio-navbar.scrolled .navbar-menu .nav-link.active {
+  color: #ffbd39;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .portfolio-navbar {
+    background: #000000;
+  }
+
+  .portfolio-navbar .navbar-container {
+    padding: 0 20px;
+  }
+
+  .portfolio-navbar .navbar-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .portfolio-navbar .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .portfolio-navbar .navbar-menu.open {
+    transform: translateX(0);
+  }
+
+  .portfolio-navbar .navbar-menu .nav-item {
+    text-align: center;
+  }
+
+  .portfolio-navbar .navbar-menu .nav-item .nav-link {
+    font-size: 24px;
+    padding: 15px 30px;
+  }
+
+  .portfolio-navbar .navbar-menu .nav-item .nav-link::after {
+    display: none;
+  }
+
+  .portfolio-navbar .navbar-menu .nav-item .nav-link:hover,
+  .portfolio-navbar .navbar-menu .nav-item .nav-link:focus,
+  .portfolio-navbar .navbar-menu .nav-item .nav-link.active {
+    color: #ffbd39;
+    background: rgba(255, 189, 57, 0.1);
+    border-radius: 5px;
+  }
+}
