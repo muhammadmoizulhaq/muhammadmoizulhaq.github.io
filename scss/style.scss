@@ -986,7 +986,7 @@ h1, h2, h3, h4, h5,
 }
 //PROGRESS BAR
 .progress{
-	height: 10px;
+	height: 12px;
 	box-shadow: none;
 	background: lighten($black,10%);
 	overflow: visible;
@@ -1014,11 +1014,12 @@ h1, h2, h3, h4, h5,
 	}
 	span{
 		position: absolute;
-		top: -38px;
-		right: 0;
-		font-size: 20px;
-		font-weight: 400;
-		color: $white;
+		right: 5px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 12px;
+		font-weight: 600;
+		color: $gray-dark;
 	}
 }
 

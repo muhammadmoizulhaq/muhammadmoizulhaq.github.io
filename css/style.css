@@ -8905,7 +8905,7 @@ body { padding-top: 120px; }
     font-weight: 500; }
 
 .progress {
-  height: 10px;
+  height: 12px;
   -webkit-box-shadow: none;
   box-shadow: none;
   background: #1a1a1a;
@@ -8940,11 +8940,12 @@ body { padding-top: 120px; }
     opacity: 0; }
   .progress-bar span {
     position: absolute;
-    top: -38px;
-    right: 0;
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff; }
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    font-weight: 600;
+    color: #343a40; }
 
 .ftco-hireme {
   background: #ffbd39;
