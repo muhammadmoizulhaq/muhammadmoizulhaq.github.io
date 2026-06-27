@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bio",
+  "description": "Bio data for the Muhammad Moiz portfolio. Edit this file to update name, contact, links, skills, stats, etc. The website auto-picks changes — no code edits needed.",
+  "type": "object",
+  "required": ["name", "monogram", "title", "tagline", "email", "phone", "location", "bio", "links"],
+  "properties": {
+    "name": { "type": "string", "description": "Full legal name" },
+    "displayName": {
+      "type": "object",
+      "description": "Split name for the hero headline (first line / second line)",
+      "properties": {
+        "first": { "type": "string" },
+        "last": { "type": "string" },
+        "full": { "type": "string" }
+      }
+    },
+    "monogram": { "type": "string", "description": "2-letter monogram for the 3D logo + footer button" },
+    "title": { "type": "string", "description": "Role title shown under the hero name (typewriter effect)" },
+    "tagline": { "type": "string", "description": "One-liner under the typewriter" },
+    "role": { "type": "string" },
+    "stack": { "type": "string" },
+    "focus": { "type": "string" },
+    "status": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "phone": { "type": "string", "description": "E.164-ish phone, used for tel: links" },
+    "location": { "type": "string" },
+    "locationShort": { "type": "string" },
+    "resumeFile": { "type": "string", "description": "Path to the resume PDF in /public" },
+    "bio": { "type": "array", "items": { "type": "string" }, "description": "About-section paragraphs" },
+    "tags": { "type": "array", "items": { "type": "string" }, "description": "Quick chips under the bio" },
+    "stats": {
+      "type": "array",
+      "description": "Hero stat counters (count-up on scroll)",
+      "items": {
+        "type": "object",
+        "required": ["label", "value"],
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "marquee": { "type": "array", "items": { "type": "string" } },
+    "links": {
+      "type": "array",
+      "description": "Social / professional links rendered in the Contact section",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "platform", "url"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "platform": { "type": "string", "enum": ["github", "linkedin", "twitter", "website", "email", "phone"] },
+          "url": { "type": "string", "format": "uri" },
+          "handle": { "type": "string" }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "level", "accent"],
+        "properties": {
+          "name": { "type": "string" },
+          "level": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "accent": { "type": "string", "enum": ["amber", "orange", "magenta", "green"] }
+        }
+      }
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "icon"],
+        "properties": {
+          "name": { "type": "string" },
+          "icon": { "type": "string", "description": "Lucide icon key (see Interests.tsx map)" }
+        }
+      }
+    }
+  }
+}

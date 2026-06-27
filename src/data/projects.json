@@ -1,0 +1,139 @@
+{
+  "$schema": "./projects.schema.json",
+  "items": [
+    {
+      "id": "mywhoosh",
+      "title": "MyWhoosh",
+      "category": "Game",
+      "description": "Virtual cycling platform \u2014 indoor racing, training and events built on Unreal Engine.",
+      "url": "https://mywhoosh.com/",
+      "kind": "site",
+      "tags": ["Unreal Engine", "Multiplayer", "Cycling Sim"],
+      "accent": "green",
+      "initials": "MW",
+      "details": [
+        "Implemented new features to enhance overall user experience and product quality.",
+        "Designed and architected scalable systems aligned with production requirements.",
+        "Conducted R&D to improve performance, stability, and development workflows.",
+        "Collaborated closely with cross-functional teams to deliver high-quality features."
+      ]
+    },
+    {
+      "id": "maelstrom",
+      "title": "Maelstrom",
+      "category": "Game",
+      "description": "Grim fantasy meets thunderous naval combat. Captain an Orc, Dwarf, or Human warship in online multiplayer.",
+      "url": "https://store.steampowered.com/app/764050/Maelstrom/",
+      "kind": "store",
+      "tags": ["Naval Combat", "Online MP", "Steam"],
+      "accent": "magenta",
+      "initials": "MA",
+      "details": [
+        "Grim fantasy combined with thunderous naval combat in a vibrant, monster-saturated world.",
+        "Captain an Orc, Dwarf, or Human warship and sail the turbulent Abyssal Ocean.",
+        "Online multiplayer with free-for-all and team-based matches."
+      ]
+    },
+    {
+      "id": "strayshot",
+      "title": "StrayShot",
+      "category": "Game",
+      "description": "Third-person battle royale shooter with high-quality graphics and fast-paced mechanics \u2014 solo & squad.",
+      "url": "https://www.strayshot.game/",
+      "kind": "site",
+      "tags": ["TPS", "Battle Royale", "Shooter"],
+      "accent": "orange",
+      "initials": "SS",
+      "details": [
+        "Third-person shooter throwing you into heart-pounding battle royale action.",
+        "Stunning environments with high-quality graphics and fast-paced shooter mechanics.",
+        "Suitable for both squad-based and solo play \u2014 only the strongest survive."
+      ]
+    },
+    {
+      "id": "fab-art-gallery",
+      "title": "Art Gallery",
+      "category": "Experience",
+      "description": "Exclusive Virtua Art Gallery \u2014 explore digital art in a way you've never experienced before.",
+      "url": "https://www.fab.com/listings/214505f9-237a-452e-b75b-082957deac92",
+      "kind": "marketplace",
+      "tags": ["Virtual Gallery", "Digital Art", "Unreal"],
+      "accent": "amber",
+      "initials": "AG",
+      "details": [
+        "Explore digital art in a way you've never experienced before.",
+        "An exclusive Virtua Art Gallery built in Unreal Engine."
+      ]
+    },
+    {
+      "id": "fab-fancave",
+      "title": "Fancave",
+      "category": "Experience",
+      "description": "Customizable Fancave for digital collectibles \u2014 plus the futuristic Virtua Dome for bigger items.",
+      "url": "https://www.fab.com/listings/e744ecce-3c2a-411d-9c46-f9db6b7d3043",
+      "kind": "marketplace",
+      "tags": ["Collectibles", "Customization", "Virtua Dome"],
+      "accent": "green",
+      "initials": "FC",
+      "details": [
+        "Display your incredible digital collectibles within your very own customizable Fancave.",
+        "For bigger collectibles, take advantage of the insane futuristic Virtua Dome."
+      ]
+    },
+    {
+      "id": "vid-1",
+      "title": "Showreel // 01",
+      "category": "Video",
+      "description": "Gameplay & systems showcase \u2014 click to watch on YouTube.",
+      "url": "https://youtu.be/zB7Mgq2O7Zo",
+      "kind": "video",
+      "tags": ["Showreel", "Gameplay"],
+      "accent": "magenta",
+      "initials": "V1"
+    },
+    {
+      "id": "vid-2",
+      "title": "Showreel // 02",
+      "category": "Video",
+      "description": "Multiplayer networking & combat demo \u2014 click to watch on YouTube.",
+      "url": "https://youtu.be/nfijRkX5EFE",
+      "kind": "video",
+      "tags": ["Networking", "Combat"],
+      "accent": "orange",
+      "initials": "V2"
+    },
+    {
+      "id": "vid-3",
+      "title": "Showreel // 03",
+      "category": "Video",
+      "description": "Environment & interaction showcase \u2014 click to watch on YouTube.",
+      "url": "https://youtu.be/zxHq1s0U2Ck",
+      "kind": "video",
+      "tags": ["Environment", "Interaction"],
+      "accent": "amber",
+      "initials": "V3"
+    },
+    {
+      "id": "vid-4",
+      "title": "Showreel // 04",
+      "category": "Video",
+      "description": "UI & systems walkthrough \u2014 click to watch on YouTube.",
+      "url": "https://youtu.be/8sRByEL1fVo",
+      "kind": "video",
+      "tags": ["UI", "Systems"],
+      "accent": "green",
+      "initials": "V4"
+    },
+    {
+      "id": "vid-5",
+      "title": "Showreel // 05",
+      "category": "Video",
+      "description": "Optimization & performance capture \u2014 click to watch on YouTube.",
+      "url": "https://youtu.be/uH1XZTR39no",
+      "kind": "video",
+      "tags": ["Optimization", "Performance"],
+      "accent": "magenta",
+      "initials": "V5"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+name: Deploy to GitHub Pages
+
+# ------------------------------------------------------------------
+# Builds the Next.js static export and deploys it to GitHub Pages.
+#
+# The portfolio is a fully static site (`output: "export"` in
+# next.config.ts). This workflow:
+#   1. Installs deps with Bun.
+#   2. Auto-derives `basePath` from the repo name.
+#   3. Runs `bun run build:gh-pages` → produces `out/`.
+#   4. Uploads `out/` as a Pages artifact and deploys it.
+#
+# One-time setup:
+#   Repo → Settings → Pages → Build and deployment → Source →
+#   select "GitHub Actions" (NOT "Deploy from a branch").
+# ------------------------------------------------------------------
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+# Permissions required by the official Pages deployment actions.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment; cancel in-progress runs on a
+# new push, but don't cancel the currently-live deployment.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build static export
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Derive basePath from repository name
+        id: basepath
+        shell: bash
+        env:
+          REPO: ${{ github.repository }}
+        # github.repository is "owner/repo".
+        # - For a user/org site the repo name equals "<owner>.github.io",
+        #   and the site is served from the domain root → basePath = "".
+        # - For any other repo it is a project site served under
+        #   "/<repo>/" → basePath = "/<repo>".
+        run: |
+          OWNER="${REPO%%/*}"
+          REPO_NAME="${REPO#*/}"
+          if [[ "$REPO_NAME" == "$OWNER.github.io" ]]; then
+            BP=""
+          else
+            BP="/$REPO_NAME"
+          fi
+          echo "basePath=$BP" >> "$GITHUB_OUTPUT"
+          echo "Derived basePath: '$BP'"
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static export
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.basepath.outputs.basePath }}
+        run: bun run build:gh-pages
+
+      - name: Add .nojekyll
+        # Ensures GitHub Pages serves the "_next/" folder verbatim.
+        # Jekyll would otherwise ignore directories prefixed with "_".
+        run: touch out/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

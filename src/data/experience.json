@@ -1,0 +1,90 @@
+{
+  "$schema": "./experience.schema.json",
+  "items": [
+    {
+      "id": "mywhoosh",
+      "company": "MyWhoosh",
+      "role": "Unreal Engine Developer",
+      "period": "12/2025 \u2013 Present",
+      "location": "Abu Dhabi, UAE",
+      "current": true,
+      "accent": "green",
+      "highlights": [
+        "Implemented new features to enhance overall user experience and product quality.",
+        "Designed and architected scalable systems aligned with production requirements.",
+        "Conducted R&D to improve performance, stability, and development workflows.",
+        "Collaborated closely with cross-functional teams to deliver high-quality features."
+      ]
+    },
+    {
+      "id": "devsinc",
+      "company": "Devsinc",
+      "role": "Sr. Unreal Engine Developer (C++)",
+      "period": "07/2024 \u2013 10/2025",
+      "location": "Lahore, Pakistan",
+      "accent": "amber",
+      "highlights": [
+        "Implemented complex multiplayer networking solutions in C++ that reduced synchronization delays by 10%.",
+        "Wrote custom C++ scripts to enhance player immersion in dynamic environments.",
+        "Mentored junior developers on Unreal Engine and C++ best practices, boosting team productivity.",
+        "Conducted performance profiling and memory optimization, reducing memory usage by 5%."
+      ]
+    },
+    {
+      "id": "ibloxx",
+      "company": "iBLOXX Studios DMCC",
+      "role": "Unreal Engine Developer (C++)",
+      "period": "12/2023 \u2013 03/2024",
+      "location": "Dubai, United Arab Emirates",
+      "accent": "magenta",
+      "highlights": [
+        "Developed gameplay systems in C++ to improve player interaction realism in Unreal Engine.",
+        "Optimized networking code for multiplayer, reducing latency and improving connection stability.",
+        "Designed C++ interfaces for haptic feedback systems, increasing player engagement.",
+        "Refined existing C++ code for modularity, reducing bugs and accelerating future development.",
+        "Achieved a 20% reduction in session latency through optimized C++ network handling."
+      ]
+    },
+    {
+      "id": "bigimmersive",
+      "company": "BIG IMMERSIVE",
+      "role": "Unreal Engine Developer (C++)",
+      "period": "06/2021 \u2013 12/2023",
+      "location": "Lahore, Pakistan",
+      "accent": "orange",
+      "highlights": [
+        "Developed core mechanics in C++ in Unreal Engine, improving player retention by enhancing realism.",
+        "Refactored C++ code to optimize memory management, reducing load times and improving performance.",
+        "Collaborated with artists and designers to integrate assets and environments via C++ scripting.",
+        "Reduced frame rate drops by 15% through C++ performance optimizations."
+      ]
+    },
+    {
+      "id": "oz",
+      "company": "OZ",
+      "role": "Jr. Unreal Engine Developer (C++)",
+      "period": "12/2020 \u2013 06/2021",
+      "location": "Lahore, Pakistan",
+      "accent": "amber",
+      "highlights": [
+        "Contributed to C++ gameplay features for sports simulations, enhancing real-time player responsiveness by 25%.",
+        "Implemented UI features in C++ within Unreal Engine, improving user satisfaction.",
+        "Collaborated with senior engineers on debugging and optimizing C++ code, reducing reported issues."
+      ]
+    },
+    {
+      "id": "services",
+      "company": "Services Hospital",
+      "role": "Jr. Unreal Engine Developer (C++)",
+      "period": "10/2019 \u2013 09/2020",
+      "location": "Lahore, Pakistan",
+      "accent": "green",
+      "highlights": [
+        "Built a desktop medical training app in Unreal Engine to help house-job doctors practice on virtual patients.",
+        "Developed a doctor inventory system managing per-doctor data per virtual patient.",
+        "Implemented environment interaction \u2014 picking up and moving objects.",
+        "Built the full application UI and integrated in-house REST APIs to train and examine doctors."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Projects",
+  "description": "Showcase + showreels for the portfolio. Add/remove/reorder items here — the Projects section auto-renders them. No code changes needed.",
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "category", "description", "url", "kind", "tags", "accent", "initials"],
+        "properties": {
+          "id": { "type": "string", "description": "Unique slug" },
+          "title": { "type": "string" },
+          "category": { "type": "string", "enum": ["Game", "Experience", "Tool", "Video"] },
+          "description": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "kind": { "type": "string", "enum": ["site", "store", "marketplace", "video"], "description": "Determines the open icon + behavior" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "accent": { "type": "string", "enum": ["amber", "orange", "magenta", "green"] },
+          "initials": { "type": "string", "description": "2-letter monogram shown on the card" },
+          "details": { "type": "array", "items": { "type": "string" }, "description": "Optional longer-form bullets shown in the project modal" }
+        }
+      }
+    }
+  }
+}

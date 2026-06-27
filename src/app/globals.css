@@ -1,0 +1,849 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-retro);
+  --font-mono: var(--font-retro);
+  --font-pixel: var(--font-pixel);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-neon-amber: var(--neon-amber);
+  --color-neon-orange: var(--neon-orange);
+  --color-neon-magenta: var(--neon-magenta);
+  --color-neon-green: var(--neon-green);
+  --color-neon-yellow: var(--neon-yellow);
+  --color-crt-bg: var(--crt-bg);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Retro arcade CRT theme — warm dark with amber/orange/magenta/green neon.
+     Deliberately avoids indigo/blue. */
+  --radius: 0.25rem;
+
+  --crt-bg: oklch(0.16 0.02 60);
+  --background: oklch(0.13 0.025 55);
+  --foreground: oklch(0.92 0.08 75);
+
+  --card: oklch(0.17 0.03 55);
+  --card-foreground: oklch(0.92 0.08 75);
+  --popover: oklch(0.17 0.03 55);
+  --popover-foreground: oklch(0.92 0.08 75);
+
+  --primary: oklch(0.78 0.17 65);
+  --primary-foreground: oklch(0.16 0.02 60);
+
+  --secondary: oklch(0.24 0.04 55);
+  --secondary-foreground: oklch(0.92 0.08 75);
+
+  --muted: oklch(0.22 0.03 55);
+  --muted-foreground: oklch(0.7 0.06 70);
+
+  --accent: oklch(0.7 0.18 30);
+  --accent-foreground: oklch(0.95 0.05 75);
+
+  --destructive: oklch(0.65 0.24 25);
+  --border: oklch(0.32 0.05 60 / 60%);
+  --input: oklch(0.26 0.04 55);
+  --ring: oklch(0.78 0.17 65);
+
+  /* Neon accent palette */
+  --neon-amber: oklch(0.82 0.16 75);
+  --neon-orange: oklch(0.72 0.2 55);
+  --neon-magenta: oklch(0.68 0.24 350);
+  --neon-green: oklch(0.78 0.19 145);
+  --neon-yellow: oklch(0.88 0.17 90);
+
+  --chart-1: var(--neon-amber);
+  --chart-2: var(--neon-orange);
+  --chart-3: var(--neon-magenta);
+  --chart-4: var(--neon-green);
+  --chart-5: var(--neon-yellow);
+
+  --sidebar: oklch(0.15 0.025 55);
+  --sidebar-foreground: oklch(0.92 0.08 75);
+  --sidebar-primary: oklch(0.78 0.17 65);
+  --sidebar-primary-foreground: oklch(0.16 0.02 60);
+  --sidebar-accent: oklch(0.24 0.04 55);
+  --sidebar-accent-foreground: oklch(0.92 0.08 75);
+  --sidebar-border: oklch(0.32 0.05 60 / 60%);
+  --sidebar-ring: oklch(0.78 0.17 65);
+}
+
+.dark {
+  /* Theme is dark-first; dark vars mirror root. */
+  --background: oklch(0.11 0.022 55);
+  --foreground: oklch(0.93 0.08 75);
+  --card: oklch(0.15 0.028 55);
+  --card-foreground: oklch(0.93 0.08 75);
+  --popover: oklch(0.15 0.028 55);
+  --popover-foreground: oklch(0.93 0.08 75);
+}
+
+/* ---------- Accent-color theme switcher ----------
+   Setting data-neon-accent on <html> recolors the site's primary/ring/neon
+   palette at runtime (driven by the command terminal `theme` command and the
+   header swatch buttons). Default (no attribute) = amber. */
+:root[data-neon-accent="amber"] {
+  --primary: oklch(0.78 0.17 65);
+  --primary-foreground: oklch(0.16 0.02 60);
+  --ring: oklch(0.82 0.16 75);
+  --neon-amber: oklch(0.85 0.17 75);
+}
+:root[data-neon-accent="orange"] {
+  --primary: oklch(0.72 0.2 55);
+  --primary-foreground: oklch(0.14 0.02 55);
+  --ring: oklch(0.74 0.21 55);
+  --neon-orange: oklch(0.78 0.21 55);
+  /* Retint the amber-leaning UI chrome toward orange so the swap reads clearly. */
+  --chart-1: var(--neon-orange);
+}
+:root[data-neon-accent="magenta"] {
+  --primary: oklch(0.68 0.24 350);
+  --primary-foreground: oklch(0.14 0.02 60);
+  --ring: oklch(0.7 0.24 350);
+  --neon-magenta: oklch(0.72 0.25 350);
+  --chart-1: var(--neon-magenta);
+}
+:root[data-neon-accent="green"] {
+  --primary: oklch(0.78 0.19 145);
+  --primary-foreground: oklch(0.14 0.02 145);
+  --ring: oklch(0.8 0.19 145);
+  --neon-green: oklch(0.82 0.2 145);
+  --chart-1: var(--neon-green);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-retro), monospace;
+    font-size: 1.3rem;
+    line-height: 1.45;
+    /* Warm vignette + subtle scanline base */
+    background-image:
+      radial-gradient(ellipse at 50% 0%, oklch(0.22 0.05 55 / 0.55), transparent 60%),
+      radial-gradient(ellipse at 100% 100%, oklch(0.2 0.06 30 / 0.4), transparent 55%),
+      radial-gradient(ellipse at 0% 80%, oklch(0.2 0.05 145 / 0.25), transparent 55%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: var(--neon-magenta);
+    color: var(--background);
+  }
+}
+
+/* ---------- Retro fonts helpers ---------- */
+.font-pixel {
+  font-family: var(--font-pixel), monospace;
+}
+.font-retro {
+  font-family: var(--font-retro), monospace;
+}
+
+/* ---------- CRT scanline + flicker overlay ---------- */
+/* Default CRT settings (overridden by src/lib/crt-settings.ts at runtime). */
+:root {
+  --crt-scanline-opacity: 1;
+  --crt-glow: 1;
+  --crt-curvature: 1;
+}
+.crt-scanlines {
+  position: relative;
+}
+.crt-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  mix-blend-mode: multiply;
+  z-index: 2;
+}
+
+/* Global CRT sweep lines across the whole page */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: var(--crt-scanline-opacity, 1);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.12) 3px,
+      rgba(0, 0, 0, 0.12) 4px
+    );
+}
+.crt-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 180, 80, 0.04) 50%,
+    transparent 100%
+  );
+}
+/* Flicker is ON by default; disabled only when the user turns it off
+   (data-crt-flicker="0"). This avoids a no-flicker flash before the settings
+   lib hydrates. */
+:root:not([data-crt-flicker="0"]) .crt-overlay::before {
+  animation: crt-flicker 6s infinite steps(60);
+}
+@keyframes crt-flicker {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+  52% { opacity: 0.85; }
+}
+
+/* Curvature vignette strength driven by --crt-curvature. Applied to the
+   vignette layer in CRTOverlay. Opacity scales 0..1 with the setting. */
+.crt-curvature {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 49;
+  opacity: var(--crt-curvature, 1);
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  transition: opacity 0.2s ease-out;
+}
+
+/* Neon glow multiplier — scales text-shadow glows site-wide via the
+   --crt-glow custom property. Individual .neon-* helpers consume it. */
+.neon-amber {
+  color: var(--neon-amber);
+  text-shadow:
+    0 0 calc(4px * var(--crt-glow, 1)) rgba(255, 176, 60, 0.7),
+    0 0 calc(12px * var(--crt-glow, 1)) rgba(255, 140, 40, 0.4);
+}
+.neon-orange {
+  color: var(--neon-orange);
+  text-shadow:
+    0 0 calc(4px * var(--crt-glow, 1)) rgba(255, 120, 40, 0.7),
+    0 0 calc(14px * var(--crt-glow, 1)) rgba(255, 90, 20, 0.45);
+}
+.neon-magenta {
+  color: var(--neon-magenta);
+  text-shadow:
+    0 0 calc(4px * var(--crt-glow, 1)) rgba(255, 60, 160, 0.7),
+    0 0 calc(14px * var(--crt-glow, 1)) rgba(220, 30, 140, 0.45);
+}
+.neon-green {
+  color: var(--neon-green);
+  text-shadow:
+    0 0 calc(4px * var(--crt-glow, 1)) rgba(80, 230, 140, 0.7),
+    0 0 calc(14px * var(--crt-glow, 1)) rgba(40, 200, 110, 0.45);
+}
+.neon-yellow {
+  color: var(--neon-yellow);
+  text-shadow:
+    0 0 calc(4px * var(--crt-glow, 1)) rgba(255, 220, 80, 0.7),
+    0 0 calc(14px * var(--crt-glow, 1)) rgba(230, 190, 40, 0.45);
+}
+
+/* Neon border glow for cards */
+.neon-border-amber {
+  border: 1px solid color-mix(in oklch, var(--neon-amber) 55%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--neon-amber) 18%, transparent),
+    0 0 18px -4px color-mix(in oklch, var(--neon-amber) 60%, transparent),
+    inset 0 0 22px -10px color-mix(in oklch, var(--neon-amber) 40%, transparent);
+}
+.neon-border-magenta {
+  border: 1px solid color-mix(in oklch, var(--neon-magenta) 55%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--neon-magenta) 18%, transparent),
+    0 0 18px -4px color-mix(in oklch, var(--neon-magenta) 60%, transparent),
+    inset 0 0 22px -10px color-mix(in oklch, var(--neon-magenta) 40%, transparent);
+}
+.neon-border-green {
+  border: 1px solid color-mix(in oklch, var(--neon-green) 55%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--neon-green) 18%, transparent),
+    0 0 18px -4px color-mix(in oklch, var(--neon-green) 60%, transparent),
+    inset 0 0 22px -10px color-mix(in oklch, var(--neon-green) 40%, transparent);
+}
+.neon-border-orange {
+  border: 1px solid color-mix(in oklch, var(--neon-orange) 55%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--neon-orange) 18%, transparent),
+    0 0 18px -4px color-mix(in oklch, var(--neon-orange) 60%, transparent),
+    inset 0 0 22px -10px color-mix(in oklch, var(--neon-orange) 40%, transparent);
+}
+
+/* ---------- 3D scene utilities ---------- */
+.scene-3d {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Glitch text effect */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.glitch::before {
+  color: var(--neon-magenta);
+  z-index: -1;
+  animation: glitch-1 2.5s infinite linear alternate-reverse;
+}
+.glitch::after {
+  color: var(--neon-green);
+  z-index: -2;
+  animation: glitch-2 3s infinite linear alternate-reverse;
+}
+@keyframes glitch-1 {
+  0% { transform: translate(0, 0); clip-path: inset(0 0 85% 0); }
+  20% { transform: translate(-2px, 1px); clip-path: inset(40% 0 40% 0); }
+  40% { transform: translate(2px, -1px); clip-path: inset(70% 0 10% 0); }
+  60% { transform: translate(-1px, 0); clip-path: inset(20% 0 60% 0); }
+  80% { transform: translate(1px, 1px); clip-path: inset(55% 0 25% 0); }
+  100% { transform: translate(0, 0); clip-path: inset(0 0 85% 0); }
+}
+@keyframes glitch-2 {
+  0% { transform: translate(0, 0); clip-path: inset(80% 0 5% 0); }
+  25% { transform: translate(2px, -1px); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(-2px, 1px); clip-path: inset(45% 0 35% 0); }
+  75% { transform: translate(1px, 0); clip-path: inset(65% 0 15% 0); }
+  100% { transform: translate(0, 0); clip-path: inset(80% 0 5% 0); }
+}
+
+/* ---------- Click glitch ----------
+   Applied to any button / role=button / link on click for ~280ms.
+   Uses ONLY `filter` (drop-shadow chromatic aberration + brightness pulse)
+   so it never conflicts with framer-motion `transform` animations (tilt,
+   flip, layout shifts, etc.). The neon-magenta + neon-green drop-shadows
+   produce a classic CRT "RGB split" jitter on each press. */
+@keyframes btn-click-glitch {
+  0% {
+    filter: none;
+  }
+  15% {
+    filter:
+      drop-shadow(2px 0 0 var(--neon-magenta))
+      drop-shadow(-2px 0 0 var(--neon-green))
+      brightness(1.25);
+  }
+  30% {
+    filter:
+      drop-shadow(-3px 0 0 var(--neon-magenta))
+      drop-shadow(3px 0 0 var(--neon-green))
+      brightness(1.1);
+  }
+  45% {
+    filter:
+      drop-shadow(2px 1px 0 var(--neon-magenta))
+      drop-shadow(-2px -1px 0 var(--neon-green))
+      brightness(1.3);
+  }
+  60% {
+    filter:
+      drop-shadow(-1px 0 0 var(--neon-magenta))
+      drop-shadow(1px 0 0 var(--neon-green));
+  }
+  100% {
+    filter: none;
+  }
+}
+.glitch-clicked {
+  animation: btn-click-glitch 280ms steps(2, jump-none) 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glitch-clicked {
+    animation: none;
+  }
+}
+
+/* ---------- Achievement toast glitch enter/exit ----------
+   Companion to the framer-motion keyframes in AchievementToast.tsx.
+   The element gets a brief chromatic-aberration burst on mount (handled
+   by framer-motion `animate` with filter keyframes). This CSS just defines
+   a scanline tear overlay used as a ::after on the toast while it is
+   "glitching in". */
+.glitch-toast {
+  position: relative;
+}
+.glitch-toast::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 3px,
+      rgba(255, 255, 255, 0.06) 3px,
+      rgba(255, 255, 255, 0.06) 4px
+    );
+  mix-blend-mode: overlay;
+  animation: glitch-toast-tear 600ms steps(3) 1;
+}
+@keyframes glitch-toast-tear {
+  0% {
+    clip-path: inset(0 0 95% 0);
+    transform: translateX(-3px);
+    opacity: 0.9;
+  }
+  30% {
+    clip-path: inset(40% 0 35% 0);
+    transform: translateX(3px);
+    opacity: 0.6;
+  }
+  60% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translateX(-1px);
+    opacity: 0.4;
+  }
+  100% {
+    clip-path: inset(100% 0 0 0);
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glitch-toast::after {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Blinking terminal cursor */
+.blink-cursor::after {
+  content: "▋";
+  margin-left: 2px;
+  animation: blink 1s steps(2) infinite;
+  color: var(--neon-amber);
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+/* Marquee scroll */
+.marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Activity ticker — continuous leftward sweep */
+@keyframes ticker-sweep {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* CRT beam pulse — used by the cursor trail hot core for an extra flicker */
+@keyframes beam-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Snake food shimmer — gives the magenta food pixel a subtle pulse */
+@keyframes food-shimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.4); }
+}
+
+/* Slide-in for the "NEW" badge on recent-unlock chips */
+@keyframes new-tag-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* Floating animation for 3D idle */
+.float-y {
+  animation: float-y 4s ease-in-out infinite;
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Scrollbar styling — retro */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.12 0.02 55);
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--neon-amber) 45%, transparent);
+  border: 2px solid oklch(0.12 0.02 55);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-amber);
+}
+
+/* Pixelated grid background helper */
+.grid-bg {
+  background-image:
+    linear-gradient(color-mix(in oklch, var(--neon-amber) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklch, var(--neon-amber) 8%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ---------- Boot sequence (CRT power-on) ---------- */
+/* The screen starts as a thin bright horizontal line, then expands vertically
+   into the full screen — classic CRT power-on. */
+@keyframes crt-power-on {
+  0% { transform: scaleY(0.004) scaleX(1); filter: brightness(8); opacity: 1; }
+  8% { transform: scaleY(0.01) scaleX(1); filter: brightness(6); opacity: 1; }
+  35% { transform: scaleY(1) scaleX(1); filter: brightness(2.2); opacity: 1; }
+  55% { transform: scaleY(1) scaleX(1); filter: brightness(1.15); opacity: 1; }
+  100% { transform: scaleY(1) scaleX(1); filter: brightness(1); opacity: 1; }
+}
+.crt-power-on {
+  animation: crt-power-on 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transform-origin: center center;
+}
+
+/* Boot overlay fade-out */
+@keyframes boot-fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+.boot-fade-out {
+  animation: boot-fade-out 0.6s ease forwards;
+}
+
+/* White flash on boot start */
+@keyframes boot-flash {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+.boot-flash {
+  animation: boot-flash 0.5s ease forwards;
+}
+
+/* Scanline that sweeps down during boot */
+@keyframes boot-sweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(2400%); opacity: 0; }
+}
+.boot-sweep {
+  animation: boot-sweep 1.2s linear forwards;
+}
+
+/* ---------- Command terminal ---------- */
+@keyframes term-in {
+  0% { opacity: 0; transform: translateY(12px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.term-in {
+  animation: term-in 0.22s ease-out both;
+}
+
+/* ---------- Starfield (hero background) ---------- */
+@keyframes star-drift {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(120px); opacity: 0; }
+}
+
+/* ---------- Count-up shimmer ---------- */
+@keyframes count-glow {
+  0%, 100% { text-shadow: 0 0 4px rgba(255,176,60,0.6), 0 0 12px rgba(255,140,40,0.35); }
+  50% { text-shadow: 0 0 8px rgba(255,176,60,0.9), 0 0 22px rgba(255,140,40,0.6); }
+}
+.count-glow {
+  animation: count-glow 2.4s ease-in-out infinite;
+}
+
+/* ---------- Section divider retro arrows ---------- */
+.divider-arrows {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 10px,
+    color-mix(in oklch, var(--neon-amber) 50%, transparent) 10px,
+    color-mix(in oklch, var(--neon-amber) 50%, transparent) 14px
+  );
+}
+
+/* Glitchy hover wobble for buttons */
+@keyframes wobble {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+}
+.hover-wobble:hover {
+  animation: wobble 0.18s steps(2) 2;
+}
+
+/* Pixel corner brackets helper (draws 4 corner L-shapes) */
+.pixel-corners {
+  position: relative;
+}
+.pixel-corners::before,
+.pixel-corners::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: color-mix(in oklch, var(--neon-amber) 70%, transparent);
+  pointer-events: none;
+}
+.pixel-corners::before {
+  top: -1px; left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.pixel-corners::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* ---------- Accessibility: reduced-motion guard ----------
+   For users who prefer reduced motion, neutralize the heavy/infinite
+   animations (starfield drift, glitch storm, boot sweep, marquee, float,
+   count-glow, ping, marching dividers). Content remains fully usable. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Specifically kill the infinite/looping decorative animations. */
+  .marquee,
+  .float-y,
+  .count-glow,
+  .boot-sweep,
+  .crt-overlay::before,
+  .blink-cursor::after {
+    animation: none !important;
+  }
+  /* The glitch storm easter egg: render the message statically (no jitter). */
+  .crt-power-on {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ---------- Auto-accent rotation indicator ----------
+   When data-neon-accent-auto is set on <html>, a subtle hue-rotation animates
+   the primary/ring so the "auto" swatch visibly pulses through all 4 colors. */
+@keyframes auto-hue-pulse {
+  0%, 100% {
+    --primary: oklch(0.78 0.17 65);
+    --ring: oklch(0.82 0.16 75);
+  }
+  25% {
+    --primary: oklch(0.72 0.2 55);
+    --ring: oklch(0.74 0.21 55);
+  }
+  50% {
+    --primary: oklch(0.68 0.24 350);
+    --ring: oklch(0.7 0.24 350);
+  }
+  75% {
+    --primary: oklch(0.78 0.19 145);
+    --ring: oklch(0.8 0.19 145);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-neon-accent-auto="1"] {
+    animation: auto-hue-pulse 12s linear infinite;
+  }
+}
+
+/* ---------- CRT settings range sliders ----------
+   Retro-styled range inputs for the MONITOR.SYS calibration panel. */
+
+/* Day/night CRT warmth defaults (overridden by src/lib/warmth.ts at runtime).
+   hue=0, alpha=0, light=1 = neutral daytime. */
+:root {
+  --crt-warmth-hue: 0;
+  --crt-warmth-alpha: 0;
+  --crt-warmth-light: 1;
+}
+
+/* Warmth tint overlay — a fixed full-screen warm-color layer whose alpha
+   follows --crt-warmth-alpha. Invisible during the day, amber at night. */
+.crt-warmth {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 48;
+  background: oklch(0.55 0.12 55);
+  mix-blend-mode: multiply;
+  opacity: var(--crt-warmth-alpha, 0);
+  transition: opacity 1.2s ease-out;
+}
+
+.crt-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--ring) 0,
+    var(--ring) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  border: 1px solid color-mix(in oklch, var(--ring) 40%, transparent);
+  outline: none;
+  cursor: pointer;
+}
+.crt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 18px;
+  background: var(--primary);
+  border: 1px solid var(--foreground);
+  box-shadow: 0 0 8px color-mix(in oklch, var(--ring) 60%, transparent);
+  cursor: pointer;
+}
+.crt-range::-moz-range-thumb {
+  width: 14px;
+  height: 18px;
+  background: var(--primary);
+  border: 1px solid var(--foreground);
+  box-shadow: 0 0 8px color-mix(in oklch, var(--ring) 60%, transparent);
+  cursor: pointer;
+  border-radius: 0;
+}
+
+/* ---------- Print / export resume ----------
+   When the user prints the page (or exports to PDF), strip all the retro
+   animations, scanlines, neon glows and 3D transforms — produce a clean
+   single-column resume layout suitable for recruiters. */
+@media print {
+  /* Force a clean white background + black text. */
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    background-image: none !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+  /* Hide decorative chrome. */
+  .crt-overlay,
+  .crt-scanlines::after,
+  [data-print-hide] {
+    display: none !important;
+  }
+  /* Remove neon glows / text-shadows. */
+  * {
+    text-shadow: none !important;
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  /* Reset 3D transforms so cards lay flat. */
+  .preserve-3d,
+  .backface-hidden,
+  .scene-3d {
+    transform: none !important;
+    transform-style: flat !important;
+    backface-visibility: visible !important;
+    perspective: none !important;
+  }
+  /* Force card surfaces to print white with black borders. */
+  .bg-card,
+  [class*="bg-[oklch"] {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  /* Headings become solid black for readability. */
+  h1, h2, h3, .font-pixel {
+    color: #000000 !important;
+    font-family: var(--font-retro), monospace !important;
+  }
+  /* Avoid breaking inside cards. */
+  .scene-3d, section { break-inside: avoid; }
+  a {
+    color: #000000 !important;
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #444;
+  }
+  /* Page margins. */
+  @page {
+    margin: 1.5cm;
+  }
+}

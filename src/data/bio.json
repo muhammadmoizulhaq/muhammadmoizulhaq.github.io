@@ -1,0 +1,80 @@
+{
+  "$schema": "./bio.schema.json",
+  "name": "Muhammad Moiz ul haq",
+  "displayName": {
+    "first": "MUHAMMAD MOIZ",
+    "last": "UL HAQ",
+    "full": "MUHAMMAD MOIZ UL HAQ"
+  },
+  "monogram": "MM",
+  "title": "Unreal Engine Developer // C++",
+  "tagline": "Crafting immersive worlds, one frame at a time.",
+  "role": "Unreal Engine Developer",
+  "stack": "C/C++ | Unreal | Python",
+  "focus": "multiplayer \u00b7 perf \u00b7 systems",
+  "status": "open to remote",
+  "email": "moizulhaq914@gmail.com",
+  "phone": "+971557191072",
+  "location": "Abu Dhabi, UAE \u2014 Remote Worldwide",
+  "locationShort": "Abu Dhabi",
+  "resumeFile": "/resume/Muhammad-Moiz-Resume.pdf",
+  "bio": [
+    "Unreal Engine Developer with 5+ years architecting gameplay systems, multiplayer networking, and immersive experiences in C++.",
+    "From medical training simulations to online naval combat, I ship performance-critical features that players and products rely on."
+  ],
+  "tags": ["Abu Dhabi", "Remote", "C++", "Unreal 5"],
+  "stats": [
+    { "label": "YEARS_EXP", "value": "5+" },
+    { "label": "SHIPPED_PROJECTS", "value": "10+" },
+    { "label": "LATENCY_REDUCTION", "value": "20%" },
+    { "label": "RESPONSIVENESS_GAIN", "value": "25%" }
+  ],
+  "marquee": [
+    "UNREAL ENGINE",
+    "C++",
+    "MULTIPLAYER NETWORKING",
+    "GAMEPLAY SYSTEMS",
+    "PERFORMANCE OPTIMIZATION",
+    "SYSTEM DESIGN",
+    "VR / IMMERSIVE",
+    "REST API"
+  ],
+  "links": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "platform": "github",
+      "url": "https://github.com/",
+      "handle": "@moiz"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/",
+      "handle": "in/muhammad-moiz"
+    },
+    {
+      "id": "twitter",
+      "label": "X",
+      "platform": "twitter",
+      "url": "https://x.com/",
+      "handle": "@moiz"
+    }
+  ],
+  "skills": [
+    { "name": "C / C++", "level": 95, "accent": "amber" },
+    { "name": "Unreal Engine", "level": 96, "accent": "orange" },
+    { "name": "System Design", "level": 88, "accent": "magenta" },
+    { "name": "System Architecture", "level": 87, "accent": "green" },
+    { "name": "Game Programming", "level": 93, "accent": "amber" },
+    { "name": "Python", "level": 75, "accent": "magenta" }
+  ],
+  "interests": [
+    { "name": "Gaming", "icon": "gamepad" },
+    { "name": "Gardening", "icon": "leaf" },
+    { "name": "History", "icon": "scroll" },
+    { "name": "Geo Politics", "icon": "globe" },
+    { "name": "Current Affairs", "icon": "newspaper" }
+  ]
+}
