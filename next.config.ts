@@ -18,12 +18,13 @@ import type { NextConfig } from "next";
  * hosting). This project doesn't use next/image, but the flag is set for
  * safety / future-proofing.
  */
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+//const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = "";
 
 const nextConfig: NextConfig = {
   output: "export",
   basePath: basePath || undefined,
-  trailingSlash: true,
+  trailingSlash: false,
   images: {
     unoptimized: true,
   },
