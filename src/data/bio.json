@@ -17,7 +17,7 @@
   "phone": "+971557191072",
   "location": "Abu Dhabi, UAE — Remote Worldwide",
   "locationShort": "Abu Dhabi",
-  "resumeFile": "/resume/Resume-Muhammad-Moiz-ul-haq.pdf",
+  "resumeFile": "/resume/Muhammad-Moiz-Resume.pdf",
   "bio": [
     "Gameplay and systems engineer with 5+ years building performance-critical features for immersive products and multiplayer experiences.",
     "I design gameplay systems, optimize networked experiences, and ship tools that help teams move faster without sacrificing quality or stability."
@@ -44,22 +44,22 @@
       "id": "github",
       "label": "GitHub",
       "platform": "github",
-      "url": "https://github.com/muhammadmoizulhaq",
-      "handle": "@muhammadmoizulhaq"
+      "url": "https://github.com/",
+      "handle": "@moiz"
     },
     {
       "id": "linkedin",
       "label": "LinkedIn",
       "platform": "linkedin",
-      "url": "https://www.linkedin.com/in/muhammad-moiz/",
+      "url": "https://www.linkedin.com/",
       "handle": "in/muhammad-moiz"
     },
     {
       "id": "twitter",
       "label": "X",
       "platform": "twitter",
-      "url": "https://x.com/moizulhaq",
-      "handle": "@moizulhaq"
+      "url": "https://x.com/",
+      "handle": "@moiz"
     }
   ],
   "skills": [
