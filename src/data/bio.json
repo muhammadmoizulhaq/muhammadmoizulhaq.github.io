@@ -7,20 +7,20 @@
     "full": "MUHAMMAD MOIZ UL HAQ"
   },
   "monogram": "MM",
-  "title": "Unreal Engine Developer // C++",
-  "tagline": "Crafting immersive worlds, one frame at a time.",
-  "role": "Unreal Engine Developer",
-  "stack": "C/C++ | Unreal | Python",
-  "focus": "multiplayer \u00b7 perf \u00b7 systems",
-  "status": "open to remote",
+  "title": "Gameplay Engineer // Unreal Engine Developer",
+  "tagline": "Building systems that feel good, run fast, and scale online.",
+  "role": "Gameplay & Systems Engineer",
+  "stack": "C++ | Unreal Engine | Multiplayer | Python",
+  "focus": "systems · multiplayer · performance",
+  "status": "available for remote opportunities",
   "email": "moizulhaq914@gmail.com",
   "phone": "+971557191072",
-  "location": "Abu Dhabi, UAE \u2014 Remote Worldwide",
+  "location": "Abu Dhabi, UAE — Remote Worldwide",
   "locationShort": "Abu Dhabi",
-  "resumeFile": "/resume/Muhammad-Moiz-Resume.pdf",
+  "resumeFile": "/resume/Resume-Muhammad-Moiz-ul-haq.pdf",
   "bio": [
-    "Unreal Engine Developer with 5+ years architecting gameplay systems, multiplayer networking, and immersive experiences in C++.",
-    "From medical training simulations to online naval combat, I ship performance-critical features that players and products rely on."
+    "Gameplay and systems engineer with 5+ years building performance-critical features for immersive products and multiplayer experiences.",
+    "I design gameplay systems, optimize networked experiences, and ship tools that help teams move faster without sacrificing quality or stability."
   ],
   "tags": ["Abu Dhabi", "Remote", "C++", "Unreal 5"],
   "stats": [
@@ -44,22 +44,22 @@
       "id": "github",
       "label": "GitHub",
       "platform": "github",
-      "url": "https://github.com/",
-      "handle": "@moiz"
+      "url": "https://github.com/muhammadmoizulhaq",
+      "handle": "@muhammadmoizulhaq"
     },
     {
       "id": "linkedin",
       "label": "LinkedIn",
       "platform": "linkedin",
-      "url": "https://www.linkedin.com/",
+      "url": "https://www.linkedin.com/in/muhammad-moiz/",
       "handle": "in/muhammad-moiz"
     },
     {
       "id": "twitter",
       "label": "X",
       "platform": "twitter",
-      "url": "https://x.com/",
-      "handle": "@moiz"
+      "url": "https://x.com/moizulhaq",
+      "handle": "@moizulhaq"
     }
   ],
   "skills": [
