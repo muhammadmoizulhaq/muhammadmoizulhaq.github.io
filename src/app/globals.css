@@ -157,7 +157,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-retro), monospace;
-    font-size: 1.5rem;
+    font-size: 1.875rem;
     line-height: 1.5;
     /* Warm vignette + subtle scanline base */
     background-image:
