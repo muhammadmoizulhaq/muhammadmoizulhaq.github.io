@@ -157,8 +157,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-retro), monospace;
-    font-size: 1.3rem;
-    line-height: 1.45;
+    font-size: 1.5rem;
+    line-height: 1.5;
     /* Warm vignette + subtle scanline base */
     background-image:
       radial-gradient(ellipse at 50% 0%, oklch(0.22 0.05 55 / 0.55), transparent 60%),
