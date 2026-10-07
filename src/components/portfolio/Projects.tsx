@@ -141,7 +141,7 @@ export function Projects() {
       </div>
 
       {/* Tag filter bar */}
-      <div className="mb-8 flex flex-wrap items-center gap-1.5 border border-[color-mix(in_oklch,var(--neon-magenta)_22%,transparent)] bg-[color-mix(in_oklch,var(--neon-magenta)_5%,transparent)] p-2.5">
+      <div className="mb-8 flex flex-wrap items-center gap-1.5 border border-[color-mix(in_oklch,var(--neon-magenta)_22%,transparent)] bg-[color-mix(in_oklch,var(--neon-magenta)_5%,transparent)] p-2">
         <span className="mr-1 flex items-center gap-1.5 font-pixel text-[12px] text-muted-foreground">
           <Filter size={10} className="text-[var(--neon-magenta)]" />
           FILTER:
@@ -150,7 +150,7 @@ export function Projects() {
           onClick={() => setTag(null)}
           onMouseEnter={() => play("hover")}
           className={cn(
-            "border px-2 py-1 font-retro text-[12px] transition-all",
+            "border px-2 py-1 font-retro text-[13px] transition-all",
             activeTag === null
               ? "border-[var(--neon-magenta)] bg-[color-mix(in_oklch,var(--neon-magenta)_18%,transparent)] neon-magenta"
               : "border-[color-mix(in_oklch,var(--ring)_25%,transparent)] text-muted-foreground hover:text-foreground hover:border-[color-mix(in_oklch,var(--ring)_45%,transparent)]",
@@ -167,7 +167,7 @@ export function Projects() {
               onClick={() => setTag(isActive ? null : t)}
               onMouseEnter={() => play("hover")}
               className={cn(
-                "border px-2 py-1 font-retro text-[12px] transition-all",
+                "border px-2 py-1 font-retro text-[13px] transition-all",
                 isActive
                   ? "border-[var(--neon-green)] bg-[color-mix(in_oklch,var(--neon-green)_16%,transparent)] neon-green"
                   : "border-[color-mix(in_oklch,var(--ring)_25%,transparent)] text-muted-foreground hover:text-foreground hover:border-[color-mix(in_oklch,var(--ring)_45%,transparent)]",
@@ -182,7 +182,7 @@ export function Projects() {
           <button
             onClick={clearAll}
             onMouseEnter={() => play("hover")}
-            className="ml-auto flex items-center gap-1 border border-[color-mix(in_oklch,var(--neon-amber)_40%,transparent)] px-2 py-1 font-retro text-[12px] text-[var(--neon-amber)] transition-all hover:border-[var(--neon-amber)]"
+            className="ml-auto flex items-center gap-1 border border-[color-mix(in_oklch,var(--neon-amber)_40%,transparent)] px-2 py-1 font-retro text-[13px] text-[var(--neon-amber)] transition-all hover:border-[var(--neon-amber)]"
             aria-label="Clear all filters"
           >
             <X size={11} /> CLEAR
@@ -199,7 +199,7 @@ export function Projects() {
             exit={{ opacity: 0, height: 0 }}
             className="mb-4 overflow-hidden"
           >
-            <p className="font-retro text-sm text-muted-foreground">
+            <p className="font-retro text-base text-muted-foreground">
               <span className="neon-green">{">"}</span> Showing{" "}
               <span className="neon-green">{visible.length}</span> of {PROJECTS.length} projects
               {activeTag && <> tagged <span className="neon-magenta">#{activeTag}</span></>}
@@ -384,17 +384,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 {project.initials}
               </div>
               <div>
-                <div className="font-pixel text-[13px] leading-tight text-foreground">
+                <div className="font-pixel text-[15px] leading-tight text-foreground">
                   {project.title}
                 </div>
-                <div className={cn("mt-0.5 flex items-center gap-1 font-retro text-[12px]", a.text)}>
+                <div className={cn("mt-0.5 flex items-center gap-1 font-retro text-[13px]", a.text)}>
                   {kindMeta[project.kind].icon}
                   {kindMeta[project.kind].label}
                 </div>
               </div>
             </div>
             <span
-              className="border border-[color-mix(in_oklch,var(--neon-amber)_30%,transparent)] px-1.5 py-0.5 font-retro text-[11px] text-muted-foreground"
+              className="border border-[color-mix(in_oklch,var(--neon-amber)_30%,transparent)] px-1.5 py-0.5 font-retro text-[12px] text-muted-foreground"
             >
               {project.category}
             </span>
@@ -402,25 +402,25 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           {/* preview body — faux chat bubbles */}
           <div className="mt-4 flex-1 space-y-2 overflow-hidden">
-            <div className="ml-auto w-[80%] rounded-sm border border-[color-mix(in_oklch,var(--neon-amber)_25%,transparent)] bg-[color-mix(in_oklch,var(--neon-amber)_8%,transparent)] px-2.5 py-1.5 font-retro text-[12px] text-foreground/85">
+            <div className="ml-auto w-[80%] rounded-sm border border-[color-mix(in_oklch,var(--neon-amber)_25%,transparent)] bg-[color-mix(in_oklch,var(--neon-amber)_8%,transparent)] px-2.5 py-1.5 font-retro text-[13px] text-muted-foreground">
               {project.tags[0]}
             </div>
-            <div className="w-[88%] rounded-sm border border-[color-mix(in_oklch,var(--neon-magenta)_25%,transparent)] bg-[color-mix(in_oklch,var(--neon-magenta)_8%,transparent)] px-2.5 py-1.5 font-retro text-[12px] text-foreground/85">
+            <div className="w-[88%] rounded-sm border border-[color-mix(in_oklch,var(--neon-magenta)_25%,transparent)] bg-[color-mix(in_oklch,var(--neon-magenta)_8%,transparent)] px-2.5 py-1.5 font-retro text-[13px] text-muted-foreground">
               {project.tags[1] ?? project.category}
             </div>
-            <div className="ml-auto w-[70%] rounded-sm border border-[color-mix(in_oklch,var(--neon-green)_25%,transparent)] bg-[color-mix(in_oklch,var(--neon-green)_8%,transparent)] px-2.5 py-1.5 font-retro text-[12px] neon-green">
+            <div className="ml-auto w-[70%] rounded-sm border border-[color-mix(in_oklch,var(--neon-green)_25%,transparent)] bg-[color-mix(in_oklch,var(--neon-green)_8%,transparent)] px-2.5 py-1.5 font-retro text-[13px] neon-green">
               view project ↗
             </div>
           </div>
 
           {/* footer */}
           <div className="mt-3 flex items-center justify-between border-t border-[color-mix(in_oklch,var(--neon-amber)_20%,transparent)] pt-2">
-            <span className="font-retro text-[12px] text-muted-foreground">
+            <span className="font-retro text-[13px] text-muted-foreground">
               {project.description.length > 42
                 ? project.description.slice(0, 42) + "…"
                 : project.description}
             </span>
-            <span className={cn("flex items-center gap-1 font-retro text-[12px]", a.text)}>
+            <span className={cn("flex items-center gap-1 font-retro text-[13px]", a.text)}>
               <RotateCw size={11} /> FLIP
             </span>
           </div>
@@ -435,14 +435,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
           style={{ transform: "rotateY(180deg) translateZ(1px)" }}
         >
-          <div className={cn("flex items-center gap-2 font-pixel text-[12px]", a.text)}>
+          <div className={cn("flex items-center gap-2 font-pixel text-[14px]", a.text)}>
             {catIcon[project.category]} {project.title}
           </div>
-          <div className="mt-1 font-retro text-[12px] text-muted-foreground">
+          <div className="mt-1 font-retro text-[13px] text-muted-foreground">
             {project.category.toUpperCase()} {"//"} {kindMeta[project.kind].label}
           </div>
 
-          <p className="mt-4 flex-1 font-retro text-lg leading-snug text-foreground/85">
+          <p className="mt-4 flex-1 font-retro text-[15px] leading-snug text-foreground/85">
             {project.description}
           </p>
 
@@ -450,7 +450,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.tags.map((t) => (
               <span
                 key={t}
-                className="cursor-pointer border border-[color-mix(in_oklch,var(--neon-amber)_30%,transparent)] px-1.5 py-0.5 font-retro text-[11px] text-muted-foreground transition-colors hover:border-[color-mix(in_oklch,var(--neon-amber)_60%,transparent)] hover:text-[var(--neon-amber)]"
+                className="cursor-pointer border border-[color-mix(in_oklch,var(--neon-amber)_30%,transparent)] px-1.5 py-0.5 font-retro text-[12px] text-muted-foreground transition-colors hover:text-[var(--neon-amber)] hover:border-[var(--neon-amber)]"
                 title={`Filter by #${t}`}
               >
                 #{t}
@@ -464,7 +464,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             className={cn(
-              "group flex items-center justify-between border px-3 py-2.5 font-pixel text-[11px] transition-all",
+              "group flex items-center justify-between border px-3 py-2.5 font-pixel text-[12px] transition-all",
               a.border,
               a.text,
               "hover:translate-x-0.5",
@@ -485,7 +485,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               }}
               onMouseEnter={() => play("hover")}
               className={cn(
-                "flex flex-1 items-center justify-center gap-1.5 border border-[color-mix(in_oklch,var(--neon-green)_40%,transparent)] px-2 py-1.5 font-retro text-[12px] neon-green transition-all hover:border-[var(--neon-green)]",
+                "flex flex-1 items-center justify-center gap-1.5 border border-[color-mix(in_oklch,var(--neon-green)_40%,transparent)] px-2 py-1.5 font-retro text-[13px] neon-green transition-all hover:border-[var(--neon-green)]",
               )}
             >
               <Info size={12} /> VIEW DETAIL
@@ -496,7 +496,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 flip();
               }}
               onMouseEnter={() => play("hover")}
-              className="flex items-center justify-center gap-1 border border-[color-mix(in_oklch,var(--neon-amber)_30%,transparent)] px-2 py-1.5 font-retro text-[12px] text-muted-foreground transition-all hover:border-[color-mix(in_oklch,var(--neon-amber)_60%,transparent)] hover:text-[var(--neon-amber)]"
+              className="flex items-center justify-center gap-1 border border-[color-mix(in_oklch,var(--neon-amber)_30%,transparent)] px-2 py-1.5 font-retro text-[13px] text-muted-foreground transition-all hover:text-[var(--neon-amber)] hover:border-[var(--neon-amber)]"
             >
               <RotateCw size={11} /> flip
             </button>
